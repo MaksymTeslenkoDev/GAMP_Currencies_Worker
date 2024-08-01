@@ -18,4 +18,16 @@ const Server = require('./src/server.js');
     app.server.destroyWorkers();
     process.exit(1);
   }
+
+  process.on('SIGINT', () => {
+    logger.info('Process terminated by SIGINT');
+    app.server.destroyWorkers();
+    process.exit(0);
+  });
+
+  process.on('SIGTERM', () => {
+    logger.info('Process terminated by SIGTERM');
+    app.server.destroyWorkers();
+    process.exit(0);
+  });
 })();

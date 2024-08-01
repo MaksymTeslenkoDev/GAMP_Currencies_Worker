@@ -1,5 +1,4 @@
 const CronJob = require('../src/cron.job');
-const fetch = require('node-fetch');
 const { randomUUID } = require('node:crypto');
 
 class CurrenciesRatioWorker extends CronJob {
